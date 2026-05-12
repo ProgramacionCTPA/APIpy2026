@@ -1,0 +1,90 @@
+I Parte: Diagrama del Proyecto
+Comando tree /f
+C:.
+│   app.py
+│   config.py
+│   Examen.txt
+│   requirements.txt
+│   
+├───routes
+│       auth_routes.py
+│       cart_routes.py
+│       movie_routes.py
+│       product_routes.py
+│       
+├───static
+│   ├───css
+│   │       styles.css
+│   │       
+│   └───js
+│           auth.js
+│           cart.js
+│           movies.js
+│           products.js
+│           
+└───templates
+        admin.html
+        base.html
+        cart.html
+        dulceria.html
+        index.html
+        login.html
+        register.html
+
+II Parte: Requerimientos de instalación.
+requirements.txt
+
+III Parte: Crear entorno.
+python -m venv env
+
+IV Parte: Activar entorno.
+Activate.ps1
+(env) PS C:\...
+
+V Parte: Verificar e intalar librerías
+dentro del entorno
+
+pip list --------Verificar
+pip install flask      instalar
+
+VI Parte:  Crear archivo app.py
+API del proyecto.
+Contiene las vistas o rutas del proyecto.
+Permite crear o inicializar el servidor flask.
+
+VII Parte:  Crear archivo config.py
+Contiene la conexión a la Base de datos en 
+MongoDB Compás
+
+VIII Parte:  Completar los archivos auth_routes
+Crean las conexiones y métodos de las vistas.
+routes/auth_routes.py
+routes/cart_routes.py
+routes/movie_routes.py
+routes/product_routes.py
+
+IX Parte:  Ejecurtar el backend y validar que no se 
+presentan errores.
+
+python app.py
+
+X Parte: Crear Frontend
+Crear carpeta templates
+   Dentro de templates:
+   -base.html
+   -admin.html
+   -cart.html
+   -dulceria.html
+   -index.html
+   -login.html
+   -register.html
+
+Crear carpeta static
+    -crear carpeta css
+      *archivo styles.css
+    -crear carpeta js
+      *auth.js
+      *cart.js
+      *movies.js
+      *products.js
+

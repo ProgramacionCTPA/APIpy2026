@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="/static/css/styles.css">
+   <title>{% block Title %}Cine Aserrí{% endblock %}</title>
+</head>
+<body>
+
+<nav>
+<a href="/">Cartelera</a>
+<a href="/cart">Carrito</a>
+<a href="/admin" id="adminLink" style="display:none;">Admin</a>
+
+<span id="authLinks">
+<a href="/login">Login</a>
+<a href="/register">Registro</a>
+</span>
+
+<span id="userLinks" style="display:none;">
+<button onclick="logout()">Salir</button>
+</span>
+</nav>
+
+{% block content %}
+<h1>Bienvenid@s a Cine Aserrí</h1>
+<h2>Cartelera de Estreno</h2>
+<img src="/static/casona.jpg" alt="">
+{% endblock %}
+
+<script src="/static/js/auth.js"></script>
+</body>
+</html>

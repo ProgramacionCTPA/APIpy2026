@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Admin</h1>
+<h2 style="color:red;">ESTOY EN ADMIN</h2>
+<input id="titulo" placeholder="Título">
+<input id="categoria" placeholder="Categoría">
+
+<button onclick="crear()">Crear Película</button>
+<div id="movies"></div>
+<script>
+    const role = localStorage.getItem("role");
+
+if(role !== "admin"){
+    alert("Acceso denegado");
+    window.location = "/";
+}
+
+async function crear(){
+        console.log("CLICK FUNCIONA");
+    const token = localStorage.getItem('token');
+
+    if(!token){
+        alert("Debe iniciar sesión");
+        window.location = "/login";
+        return;
+    }
+
+    const tituloInput = document.getElementById("titulo");
+    const categoriaInput = document.getElementById("categoria");
+
+    const res = await fetch('/api/movies/',{
+        method:'POST',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':'Bearer ' + token
+        },
+        body: JSON.stringify({
+            titulo: tituloInput.value,
+            categoria: categoriaInput.value
+        })
+    });
+
+    const data = await res.json();
+    loadMovies();
+    console.log(data);
+
+    if(res.status === 403){
+        alert("Solo admin puede crear");
+    } else if(res.status === 401){
+        alert("No autorizado (token inválido)");
+    } else {
+        alert("Película creada");
+
+        tituloInput.value = "";
+        categoriaInput.value = "";
+    }
+}
+</script>
+<script src="/static/js/movies.js"></script>
+{% endblock %}
